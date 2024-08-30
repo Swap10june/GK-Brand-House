@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="refresh" content="30">
+    <title>GK Brand House</title>
+	<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        function generateRandomNumber() {
+            var randomNumber = Math.floor(Math.random() * (26));
+			confetti({
+				particleCount: 500,
+				spread: 200,
+				origin: { y: 0.3 }
+			});
+			var element = document.getElementById("discountAmountDisplayEng");
+			element.textContent = "Congratulations !!! You have won "+randomNumber+"% discount";
+			element.style.fontWeight = 'bold';
+			sendMessage(randomNumber);
+        }
+		function sendMessage(number) {
+			var message = "Hello GK Brand House. !!! I've won "+number+"% discount. Thank you.";
+			var phoneNumber = "9665929145";
+            // Encode the message to be URL-safe
+            var encodedMessage = encodeURIComponent(message);
+
+            // Create the WhatsApp URL
+            var url = 'https://wa.me/' + phoneNumber + '?text=' + encodedMessage;
+			window.open(url, '_blank');
+        }
+    </script>
+	<style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+			height: 100vh;
+            margin: 0;
+            background-color: #b0e0e6;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: #fff;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #4caf50; /* Green color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+	<div class="container">
+	<h1>GK Brand House</h1>
+	<h1>Special Discount Offer !!</h1>
+        <a href="#" class="button" onclick="generateRandomNumber()" >Claim Your Discount</a>
+		<p id="discountAmountDisplayEng"><strong>Click the button to get the discount offer.</strong> </p>
+		<p>Note: The discount offer is on fixed price only.</p>
+	</div>
+</body>
+</html>
